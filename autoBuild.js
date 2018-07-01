@@ -2,7 +2,7 @@ var http = require('http')
 var spawn = require('child_process').spawn
 var createHandler = require('github-webhook-handler');
 var port=7777;
-var handler = createHandler({ path: '/', secret: '' }) // 在代码仓库的 Webhooks 选项处配置
+var handler = createHandler({ path: '/', secret: '1' }) // 在代码仓库的 Webhooks 选项处配置
 var server=http.createServer(function (req, res) {
     handler(req, res, function (err) {
         res.statusCode = 404;
