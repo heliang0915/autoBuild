@@ -4,7 +4,7 @@
   "description": "",
   "main": "autoBuild.js",
   "scripts": {
-    "start": "./node autoBuild.js"
+    "start": "node autoBuild.js"
   },
   "keywords": [],
   "author": "",
