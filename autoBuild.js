@@ -1,13 +1,24 @@
 var http = require('http')
 var spawn = require('child_process').spawn
-var createHandler = require('github-webhook-handler')
-var handler = createHandler({ path: '/pushCode', secret: '' }) // 在代码仓库的 Webhooks 选项处配置
-http.createServer(function (req, res) {
+var createHandler = require('github-webhook-handler');
+var port=7777;
+var handler = createHandler({ path: '/pushCode', secret: 'bloghome' }) // 在代码仓库的 Webhooks 选项处配置
+var server=http.createServer(function (req, res) {
     handler(req, res, function (err) {
         res.statusCode = 404;
         res.end('no such location')
     })
-}).listen(7777)
+}).listen(port)
+
+server.on('listening', function () {
+    var addr = server.address();
+    var bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+    console.log(`自动部署服务器启动,${bind}`);
+
+
+});
 
 handler.on('error', function (err) {
     console.error('Error:', err.message)
