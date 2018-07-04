@@ -3,4 +3,4 @@ cd ../MyBlogBack/
 git reset --hard origin/master
 git clean -f
 git pull
-npm start
+pm2 restart all
