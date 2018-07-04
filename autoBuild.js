@@ -26,10 +26,20 @@ handler.on('error', function (err) {
 
 // 监听 push 事件
 handler.on('push', function (event) {
-    console.log('Received a push event for %s to %s',
-        event.payload.repository.name,
-        event.payload.ref)
-    rumCommand('sh', ['./autoBuild.sh'], function( txt ) { // 执行 autoBuild.sh 脚本文件
+
+    var repositoryName=event.payload.repository.name;
+    var branch=event.payload.ref;
+    var shName="";
+    console.log('Received a push event for %s to %s', repositoryName, branch)
+
+    if(repositoryName=="MyBlogBack"){  //API服务
+        shName="autoBuildAPI.sh";
+    }else if(repositoryName=="BlogSimple"){ //PC站点
+        shName="autoBuildHome.sh";
+    }else if(repositoryName=="BlogAdminSimple"){ //Admin后台
+        shName="autoBuildAdmin.sh";
+    }
+    rumCommand('sh', ['./'+shName], function( txt ) { // 执行 autoBuild.sh 脚本文件
         console.log(txt)
     })
 })
