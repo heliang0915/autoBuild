@@ -4,7 +4,8 @@
   "description": "",
   "main": "autoBuild.js",
   "scripts": {
-    "start": "node autoBuild.js"
+    "start": "node autoBuild.js",
+    "startPm2":"pm2 start autoBuild.js"
   },
   "keywords": [],
   "author": "",
