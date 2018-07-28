@@ -1,5 +1,5 @@
 #! /bin/bash
-cd ../BlogSimple/
+cd ../BlogHome/
 git reset --hard origin/master
 git clean -f
 git pull

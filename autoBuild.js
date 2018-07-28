@@ -34,7 +34,7 @@ handler.on('push', function (event) {
 
     if(repositoryName=="MyBlogBack"){  //API服务
         shName="autoBuildAPI.sh";
-    }else if(repositoryName=="BlogSimple"){ //PC站点
+    }else if(repositoryName=="BlogHome"){ //PC站点
         shName="autoBuildHome.sh";
     }else if(repositoryName=="BlogAdminSimple"){ //Admin后台
         shName="autoBuildAdmin.sh";
