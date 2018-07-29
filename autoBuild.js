@@ -38,7 +38,7 @@ handler.on('push', function (event) {
         shName="autoBuildHome.sh";
     }else if(repositoryName=="BlogAdminSimple"){ //Admin后台
         shName="autoBuildAdmin.sh";
-    }else if(repositoryName=="NovelAPI"){ //小说API后台
+    }else if(repositoryName=="koa_novel_api"){ //小说API后台
         shName="autoBuildNovelAPI.sh";
     }
     rumCommand('sh', ['./'+shName], function( txt ) { // 执行 autoBuild.sh 脚本文件
